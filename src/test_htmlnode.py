@@ -7,8 +7,8 @@ class TestHTMLNode(unittest.TestCase):
         print(node.props_to_html())
 
     def test_repr(self):
-        node = HTMLNode("<p>", "Small paragraph", None, {'href': '"not a link"', 'target': '_blank'})
-        #print(node)
+        node = HTMLNode("<p>", "Small paragraph", None, {'href': 'not a link', 'target': '_blank'})
+        print(node)
 
     def test_child_node(self):
         child_node = HTMLNode("<p>", "Small paragraph", None, {'href': '"not a link"', 'target': '_blank'})

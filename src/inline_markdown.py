@@ -108,6 +108,12 @@ def split_nodes_link(old_nodes):
     
     return new_nodes #returns the list of new nodes
 
+def text_to_textnodes(text):
+    node_list = [TextNode(text, TextType.TEXT)]
+    node_list = split_nodes_delimiter(node_list, "**", TextType.BOLD)
+    node_list = split_nodes_delimiter(node_list, "_", TextType.ITALIC)
+    node_list = split_nodes_delimiter(node_list, "`", TextType.CODE)
+    node_list = split_nodes_link(node_list)
+    node_list = split_nodes_image(node_list)
 
-#link_node = [TextNode("This is text with an ![image](https://i.imgur.com/zjjcJKZ.png) and another ![second image](https://i.imgur.com/3elNhQu.png)", TextType.TEXT)]
-#split_link_nodes = split_nodes_image(link_node)
+    return  node_list

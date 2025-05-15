@@ -1,3 +1,5 @@
+from enum import Enum
+
 class BlockType(Enum):
 	PARAGRAPH = "Paragraph Text"
 	HEADING = "Heading Text"

@@ -10,10 +10,11 @@ class BlockType(Enum):
 
 
 def markdown_to_blocks(markdown):
-	blocks = markdown.strip().split("\n\n")
-
-	for b in blocks:
-		if b == "":
-			blocks.remove(b)
-
-	return blocks
+    blocks = markdown.split("\n\n")
+    filtered_blocks = []
+    for block in blocks:
+        if block == "":
+            continue
+        block = block.strip()
+        filtered_blocks.append(block)
+    return filtered_blocks

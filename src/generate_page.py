@@ -31,7 +31,3 @@ def generate_page(from_path, template_path, dest_path):
     f = open(dest_path, "x")
     f.write(html_page)
     f.close()
-
-
-#print(os.path.dirname(r"../public/index.html"))
-generate_page(r"../content/index.md", r"../template.html", "../public/index.html")

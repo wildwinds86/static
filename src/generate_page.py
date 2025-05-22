@@ -1,5 +1,4 @@
 import os
-#import shutil
 from inline_markdown import *
 from markdown_blocks import *
 

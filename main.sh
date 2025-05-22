@@ -1,2 +1,2 @@
-cd src && python3 src/main.py
+cd src && python3 main.py
 cd ../public && python3 -m http.server 8888

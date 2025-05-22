@@ -1,6 +1,6 @@
 import os
 import shutil
-from generate_page import generate_page, generate_pages_recursive
+from generate_page import generate_pages_recursive
 from copystatic import copy_files_recursive
 
 

@@ -3,7 +3,7 @@ from inline_markdown import *
 from markdown_blocks import *
 
 
-def generate_page(from_path, template_path, dest_path):
+def generate_page(from_path, template_path, dest_path, basepath):
     print(f"Generating page {from_path} to {dest_path} using {template_path}")
 
     f = open(from_path, "r")
@@ -19,6 +19,8 @@ def generate_page(from_path, template_path, dest_path):
 
     html_page = template_html.replace(r"{{ Title }}", title)
     html_page = html_page.replace(r"{{ Content }}", html_str)
+    html_page = html_page.replace(r'href="/', f'href="{basepath}')
+    html_page = html_page.replace(r'src="/', f'src="{basepath}')
 
     if os.path.exists(dest_path):
         raise FileExistsError(f"{dest_path} already exists")
@@ -30,7 +32,7 @@ def generate_page(from_path, template_path, dest_path):
     f.write(html_page)
     f.close()
 
-def generate_pages_recursive(dir_path_content, template_path, dest_dir_path):
+def generate_pages_recursive(dir_path_content, template_path, dest_dir_path, basepath):
 
     if not os.path.exists(dest_dir_path):
         os.mkdir(dest_dir_path)
@@ -44,6 +46,6 @@ def generate_pages_recursive(dir_path_content, template_path, dest_dir_path):
         if os.path.isfile(from_path):
             html_file_path = os.path.splitext(dest_path)[0] + ".html"
             print(f"Generating html page from {from_path} to {html_file_path}")
-            generate_page(from_path, template_path, html_file_path)
+            generate_page(from_path, template_path, html_file_path, basepath)
         else:
-            generate_pages_recursive(from_path, template_path, dest_path)
+            generate_pages_recursive(from_path, template_path, dest_path, basepath)

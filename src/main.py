@@ -24,5 +24,7 @@ def main():
     copy_files_recursive(dir_path_static, dir_path_docs)
 
     generate_pages_recursive(dir_path_content, file_path_template, dir_path_docs, basepath)
+    fp = open(os.path.join(dir_path_docs, ".nojekyll"), 'x')
+    fp.close()
 
 main()

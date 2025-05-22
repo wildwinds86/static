@@ -1,1 +1,1 @@
-cd src && python3 main.py "/static/"
+python3 src/main.py "/static/"

@@ -9,10 +9,10 @@ if len(argv) > 1:
 else:
     basepath = "/"
 
-dir_path_static = r"../static"
-dir_path_docs = r"../docs"
-dir_path_content = r"../content"
-file_path_template = r"../template.html"
+dir_path_static = r"./static"
+dir_path_docs = r"./docs"
+dir_path_content = r"./content"
+file_path_template = r"./template.html"
 
 
 def main():
